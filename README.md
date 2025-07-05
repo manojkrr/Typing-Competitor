@@ -185,7 +185,7 @@ Choose one of the following options:
 **Option A: Run both frontend and backend together**
 
 ```bash
-npm run dev:all
+npm run dev
 ```
 
 - Runs frontend in Next.js dev mode.
@@ -196,7 +196,7 @@ npm run dev:all
 Terminal 1 (Frontend):
 
 ```bash
-npm run dev
+npm run dev:FE
 ```
 
 Terminal 2 (Backend):
@@ -239,9 +239,9 @@ npm run dev:BE
 ### Development
 
 ```bash
-npm run dev              # Start Next.js development server (Frontend)
+npm run dev:FE              # Start Next.js development server (Frontend)
 npm run dev:BE           # Start backend server with auto-reload (Nodemon)
-npm run dev:all          # Run both frontend & backend together
+npm run dev          # Run both frontend & backend together
 npm run type-check       # TypeScript type checking
 ```
 
