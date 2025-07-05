@@ -6,6 +6,8 @@ title What Technologies We Use
 skinparam backgroundColor white
 skinparam defaultFontSize 14
 
+left to right direction
+
 package "Frontend Technologies" {
   rectangle "Next.js 14\n(React Framework)" as NextJS
   rectangle "TypeScript\n(Type Safety)" as TS
@@ -27,7 +29,7 @@ package "Database & Storage" {
 
 package "Development Tools" {
   rectangle "TSX\n(TypeScript Runner)" as TSX
-  rectangle "ESLint\n(Code Quality)" as ESLint
+  rectangle "ESLint*\n(Code Quality)" as ESLint
   rectangle "Zod\n(Validation)" as Zod
 }
 
@@ -63,4 +65,7 @@ note right of MongoDB
   • Great for user data
 end note
 
+note top of ESLint
+  To be Added in Future
+end note
 @enduml

@@ -26,17 +26,13 @@ This application follows a modular architecture with a clear separation of conce
 
 ![Architecture Overview](assets/img/architecture.png)
 
-### Data Flow/Storage
-
-![Data Flow](assets/img/data-storage.png)
-
 ### Multiplayer Flow
 
 ![Multiplayer Sequence Diagram](assets/img/multiplayer-sequence.png)
 
-### Component Interaction
+### Data Flow/Storage
 
-![Component Interaction](assets/img/component.png)
+![Data Flow](assets/img/data-storage.png)
 
 ### Tech Stack Overview
 

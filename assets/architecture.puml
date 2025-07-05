@@ -6,8 +6,6 @@ title Typing Competitor - System Overview
 skinparam backgroundColor white
 skinparam defaultFontSize 14
 
-left to right direction
-
 ' User
 actor User
 
