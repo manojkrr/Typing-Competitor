@@ -32,7 +32,7 @@ This application follows a modular architecture with a clear separation of conce
 
 ### Multiplayer Flow
 
-![Multiplayer Flow](assets/img/multiplayer-flow.png)
+![Multiplayer Sequence Diagram](assets/img/multiplayer-sequence.png)
 
 ### Component Interaction
 

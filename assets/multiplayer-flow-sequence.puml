@@ -1,0 +1,48 @@
+@startuml MultiplayerRaceSequence
+
+title Multiplayer Race - Sequence Diagram
+
+!theme plain
+skinparam backgroundColor white
+skinparam defaultFontSize 14
+
+actor "Player 1 (Host)" as Host
+actor "Player 2" as P2
+participant "Server" as Server
+
+== Room Creation ==
+Host -> Server : 1. Create Race Room
+Server --> Host : 2. Room Created
+
+== Players Join ==
+P2 -> Server : 3. Join Room
+Server -> Host : 4. Player 2 Joined
+Server --> P2 : 5. Welcome to Room
+
+== Race Start ==
+Host -> Server : 6. Start Race
+Server --> Host : 7. Game Starts! 3... 2... 1... GO!
+Server --> P2 : 8. Game Starts! 3... 2... 1... GO!
+
+== Typing Progress ==
+Host -> Server : 9. Typing Progress
+P2 -> Server : 10. Typing Progress
+Server --> Host : Live Rankings
+Server --> P2 : Live Rankings
+
+== Race End ==
+P2 -> Server : 11. Finished!
+Server --> Host : 12. P2 Finished 1st
+Server --> P2 : 13. You Won!
+Host -> Server : 14. Finished!
+Server --> P2 : 15. Host Finished 2nd
+
+note right of Server
+Coordinates everything:
+- Room management
+- Real-time updates
+- Race sync
+- Results tracking
+end note
+
+@enduml
