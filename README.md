@@ -26,7 +26,7 @@ comprehensive TypeScript support, Zod validation, and both authenticated and gue
 
 ---
 
-## 🏗️ Architecture Overview
+## 🏗 Architecture Overview
 
 This application follows a modular architecture with a clear separation of concerns. The frontend is built using Next.js 14 with the App Router, while the backend utilizes Socket.IO for real-time communication and MongoDB for data storage.
 
