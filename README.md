@@ -15,8 +15,14 @@ comprehensive TypeScript support, Zod validation, and both authenticated and gue
 - [🚀 Installation & Setup](#-installation--setup)
 - [📝 Available Scripts](#-available-scripts)
 - [🔧 Configuration](#-configuration)
-  - [Socket.IO Events](#socketio-events)
-  - [Customization Options](#customization-options)
+- [🚀 Deployment](#-deployment)
+- [🧪 Testing](#-testing)
+- [🤝 Contributing](#-contributing)
+- [📊 Performance Considerations](#-performance-considerations)
+- [🐛 Troubleshooting](#-troubleshooting)
+- [📄 License](#-license)
+- [🎯 Roadmap](#-roadmap)
+- [📞 Support](#-support)
 
 ---
 
@@ -540,7 +546,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 For issues and questions:
 
-1. Check the [GitHub Issues](https://github.com/your-repo/issues)
+1. Check the [GitHub Issues](https://github.com/manojkrr/Typing-Competitor/issues)
 2. Review this README and troubleshooting section
 3. Create a new issue with:
    - Clear description of the problem
