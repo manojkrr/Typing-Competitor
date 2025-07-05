@@ -7,7 +7,7 @@ comprehensive TypeScript support, Zod validation, and both authenticated and gue
 
 ## Table of Contents
 
-- [🧾 Overview](#-overview)
+- [🏗️ Architecture Overview](#-architecture-overview)
 - [🎮 How to Play](#-how-to-play)
 - [🚀 Features](#-features)
 - [🛠️ Tech Stack](#-tech-stack)
