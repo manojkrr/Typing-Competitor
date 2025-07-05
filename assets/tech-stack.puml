@@ -1,0 +1,66 @@
+@startuml Technology Stack
+
+title What Technologies We Use
+
+!theme plain
+skinparam backgroundColor white
+skinparam defaultFontSize 14
+
+package "Frontend Technologies" {
+  rectangle "Next.js 14\n(React Framework)" as NextJS
+  rectangle "TypeScript\n(Type Safety)" as TS
+  rectangle "Tailwind CSS\n(Styling)" as Tailwind
+  rectangle "Socket.IO Client\n(Real-time)" as SocketClient
+}
+
+package "Backend Technologies" {
+  rectangle "Node.js\n(Server Runtime)" as NodeJS
+  rectangle "Express.js\n(Web Framework)" as Express
+  rectangle "Socket.IO Server\n(WebSockets)" as SocketServer
+  rectangle "NextAuth.js\n(Authentication)" as NextAuth
+}
+
+package "Database & Storage" {
+  rectangle "MongoDB\n(Main Database)" as MongoDB
+  rectangle "Browser Storage\n(Guest Mode)" as Browser
+}
+
+package "Development Tools" {
+  rectangle "TSX\n(TypeScript Runner)" as TSX
+  rectangle "ESLint\n(Code Quality)" as ESLint
+  rectangle "Zod\n(Validation)" as Zod
+}
+
+' Simple connections
+NextJS --> SocketClient
+NextJS --> NextAuth
+SocketClient --> SocketServer
+Express --> SocketServer
+Express --> MongoDB
+NextAuth --> MongoDB
+TSX --> NodeJS
+ESLint --> TS
+Zod --> TS
+
+note right of NextJS
+  Why Next.js?
+  • Fast page loading
+  • Built-in optimization
+  • Easy deployment
+end note
+
+note right of SocketServer
+  Why Socket.IO?
+  • Real-time communication
+  • Automatic reconnection
+  • Cross-browser support
+end note
+
+note right of MongoDB
+  Why MongoDB?
+  • Flexible data structure
+  • Easy to scale
+  • Great for user data
+end note
+
+@enduml

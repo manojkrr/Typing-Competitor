@@ -1,0 +1,172 @@
+@startuml Component Architecture
+
+!define RECTANGLE class
+
+skinparam backgroundColor #FAFAFA
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+title Typing Competitor - Component Architecture
+
+package "Pages" {
+  RECTANGLE "HomePage" as HomePage
+  RECTANGLE "SoloPage" as SoloPage
+  RECTANGLE "MultiplayerPage" as MultiplayerPage
+  RECTANGLE "RacePage" as RacePage
+  RECTANGLE "AuthPages" as AuthPages
+}
+
+package "Layout Components" {
+  RECTANGLE "RootLayout" as RootLayout
+  RECTANGLE "ThemeProvider" as ThemeProvider
+  RECTANGLE "SessionProvider" as SessionProvider
+}
+
+package "Feature Components" {
+  RECTANGLE "TypingInterface" as TypingInterface {
+    + Text Display
+    + Input Handling
+    + Progress Tracking
+    + Cheat Detection
+  }
+  
+  RECTANGLE "RaceProgress" as RaceProgress {
+    + Live Rankings
+    + Player Progress
+    + WPM Display
+  }
+  
+  RECTANGLE "ChatPanel" as ChatPanel {
+    + Message Display
+    + Input Field
+    + Real-time Updates
+  }
+  
+  RECTANGLE "PracticeStatistics" as PracticeStatistics {
+    + Charts & Graphs
+    + Performance Metrics
+    + Historical Data
+  }
+}
+
+package "UI Components" {
+  RECTANGLE "shadcn/ui" as ShadcnUI {
+    + Button
+    + Card
+    + Dialog
+    + Input
+    + Progress
+    + Badge
+  }
+  
+  RECTANGLE "Custom Components" as CustomComponents {
+    + TypingStats
+    + ResultsModal
+    + CreateRoomModal
+    + GuestModeBanner
+  }
+}
+
+package "Hooks" {
+  RECTANGLE "useSocket" as UseSocket {
+    + Connection Management
+    + Event Handling
+    + Error Handling
+  }
+  
+  RECTANGLE "useMultiplayer" as UseMultiplayer {
+    + Room Management
+    + Race Coordination
+    + Player State
+  }
+  
+  RECTANGLE "Custom Hooks" as CustomHooks {
+    + useCheatDetection
+    + useGuestStorage
+    + useTypingStats
+  }
+}
+
+package "Utilities" {
+  RECTANGLE "Validation" as Validation {
+    + Zod Schemas
+    + Type Guards
+    + Error Handling
+  }
+  
+  RECTANGLE "Database" as Database {
+    + MongoDB Client
+    + Migration System
+    + Seed Scripts
+  }
+  
+  RECTANGLE "Authentication" as Authentication {
+    + NextAuth Config
+    + Providers
+    + Callbacks
+  }
+}
+
+' Layout Relationships
+RootLayout --> ThemeProvider
+RootLayout --> SessionProvider
+ThemeProvider --> HomePage
+SessionProvider --> AuthPages
+
+' Page Relationships
+HomePage --> CustomComponents
+SoloPage --> TypingInterface
+SoloPage --> PracticeStatistics
+MultiplayerPage --> CustomComponents
+RacePage --> TypingInterface
+RacePage --> RaceProgress
+RacePage --> ChatPanel
+
+' Component Dependencies
+TypingInterface --> UseSocket
+TypingInterface --> CustomHooks
+RaceProgress --> UseMultiplayer
+ChatPanel --> UseSocket
+PracticeStatistics --> Database
+
+' UI Dependencies
+CustomComponents --> ShadcnUI
+TypingInterface --> ShadcnUI
+RaceProgress --> ShadcnUI
+ChatPanel --> ShadcnUI
+
+' Hook Dependencies
+UseSocket --> Validation
+UseMultiplayer --> UseSocket
+CustomHooks --> Validation
+
+' Utility Dependencies
+Database --> Validation
+Authentication --> Database
+
+note top of TypingInterface
+  **Core Features:**
+  • Real-time typing detection
+  • Anti-cheat measures
+  • Progress visualization
+  • Sound effects
+  • Accessibility support
+end note
+
+note top of UseSocket
+  **Socket Management:**
+  • Auto-reconnection
+  • Event type safety
+  • Error boundaries
+  • Connection status
+end note
+
+note top of Validation
+  **Type Safety:**
+  • Runtime validation
+  • Schema definitions
+  • Error handling
+  • Type inference
+end note
+
+@enduml

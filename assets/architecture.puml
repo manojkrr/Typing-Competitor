@@ -1,0 +1,62 @@
+@startuml Simple Architecture
+
+title Typing Competitor - System Overview
+
+!theme plain
+skinparam backgroundColor white
+skinparam defaultFontSize 14
+
+left to right direction
+
+' User
+actor User
+
+' Frontend
+rectangle "Frontend\n(Next.js)" as Frontend {
+  rectangle "Web Pages" as Pages
+  rectangle "React Components" as Components
+  rectangle "Socket Connection" as Socket
+}
+
+' Backend
+rectangle "Backend\n(Node.js)" as Backend {
+  rectangle "API Routes" as API
+  rectangle "Socket.IO Server" as SocketServer
+  rectangle "Authentication" as Auth
+}
+
+' Database
+database "MongoDB\nDatabase" as DB
+
+' Connections
+User --> Pages : Browse & Type
+Pages --> Components : Display UI
+Components --> Socket : Real-time Events
+Socket --> SocketServer : WebSocket
+Components --> API : Save Data
+API --> DB : Store/Retrieve
+Auth --> DB : User Management
+SocketServer --> SocketServer : Race Coordination
+
+note right of Frontend
+  • Solo Practice
+  • Multiplayer Racing
+  • Statistics Dashboard
+  • Guest Mode
+end note
+
+note right of Backend
+  • Real-time Racing
+  • User Authentication
+  • Data Storage
+  • Chat System
+end note
+
+note right of DB
+  • User Accounts
+  • Test Results
+  • Race History
+  • Statistics
+end note
+
+@enduml

@@ -1,0 +1,61 @@
+@startuml Data Storage
+
+title Where Data is Stored
+
+!theme plain
+skinparam backgroundColor white
+skinparam defaultFontSize 14
+
+' Storage Types
+database "MongoDB\n(Cloud Database)" as MongoDB
+storage "Browser Storage\n(Local)" as LocalStorage
+
+' User Types
+actor "Registered User" as RegUser
+actor "Guest User" as GuestUser
+
+' Data Types
+rectangle "User Account Data" as UserData {
+  rectangle "Profile Info" as Profile
+  rectangle "Login Credentials" as Credentials
+  rectangle "Preferences" as Prefs
+}
+
+rectangle "Performance Data" as PerfData {
+  rectangle "Test Results" as Results
+  rectangle "Statistics" as Stats
+  rectangle "Race History" as History
+}
+
+rectangle "Temporary Data" as TempData {
+  rectangle "Active Races" as ActiveRaces
+  rectangle "Chat Messages" as Chat
+  rectangle "Room Info" as Rooms
+}
+
+' Registered User Storage
+RegUser --> MongoDB : Saves Everything
+MongoDB --> UserData : Permanent Storage
+MongoDB --> PerfData : Permanent Storage
+MongoDB --> TempData : Temporary Storage
+
+' Guest User Storage
+GuestUser --> LocalStorage : Saves Locally Only
+LocalStorage --> PerfData : Session Storage
+LocalStorage --> TempData : Temporary Storage
+
+note right of MongoDB
+  ✅ Permanent storage
+  ✅ Syncs across devices
+  ✅ Backup & recovery
+  ✅ Global leaderboards
+end note
+
+note right of LocalStorage
+  ⚠️ Local device only
+  ⚠️ Can be lost
+  ✅ No account needed
+  ✅ Instant access
+end note
+
+@enduml
