@@ -5,38 +5,44 @@ comprehensive TypeScript support, Zod validation, and both authenticated and gue
 
 ![Typing Competitor Landing Page](assets/img/ui1.png)
 
-## Architecture Overview
-
-![Architecture Overview](assets/img/architecture.png)
-
 ## Table of Contents
 
 - [🧾 Overview](#-overview)
+- [🎮 How to Play](#-how-to-play)
 - [🚀 Features](#-features)
-  - [🎯 Core Features](#-core-features)
-  - [🔐 Authentication & Security](#-authentication--security)
-  - [📊 Data & Analytics](#-data--analytics)
 - [🛠️ Tech Stack](#-tech-stack)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-  - [Development Tools](#development-tools)
 - [📋 Prerequisites](#-prerequisites)
 - [🚀 Installation & Setup](#-installation--setup)
-  - [1. Clone the Repository](#1-clone-the-repository)
-  - [2. Environment Configuration](#2-environment-configuration)
-  - [3. Database Setup](#3-database-setup)
-  - [4. Development Server](#4-development-server)
-  - [5. Access the Application](#5-access-the-application)
-- [🏗️ Architecture Overview](#-architecture-overview)
 - [📝 Available Scripts](#-available-scripts)
-  - [Development](#development)
-  - [Code Quality](#code-quality)
-  - [Database Management](#database-management)
-  - [Production](#production)
-- [🎮 How to Play](#-how-to-play)
 - [🔧 Configuration](#-configuration)
   - [Socket.IO Events](#socketio-events)
   - [Customization Options](#customization-options)
+
+---
+
+## 🏗️ Architecture Overview
+
+This application follows a modular architecture with a clear separation of concerns. The frontend is built using Next.js 14 with the App Router, while the backend utilizes Socket.IO for real-time communication and MongoDB for data storage.
+
+![Architecture Overview](assets/img/architecture.png)
+
+### Data Flow/Storage
+
+![Data Flow](assets/img/data-storage.png)
+
+### Multiplayer Flow
+
+![Multiplayer Flow](assets/img/multiplayer-flow.png)
+
+### Component Interaction
+
+![Component Interaction](assets/img/component.png)
+
+### Tech Stack Overview
+
+![Tech Stack Overview](assets/img/tech-stack.png)
+
+---
 
 ## 🚀 Features
 
@@ -209,26 +215,6 @@ npm run dev:BE
 - **Backend Health Check**: [http://localhost:3001/health](http://localhost:3001/health)
 - **Socket.IO Server**: ws\://localhost:3001
 
-## 🏗️ Architecture Overview
-
-This application follows a modular architecture with a clear separation of concerns. The frontend is built using Next.js 14 with the App Router, while the backend utilizes Socket.IO for real-time communication and MongoDB for data storage.
-
-### Data Flow/Storage
-
-![Data Flow](assets/img/data-storage.png)
-
-### Multiplayer Flow
-
-![Multiplayer Flow](assets/img/multiplayer-flow.png)
-
-### Component Interaction
-
-![Component Interaction](assets/img/component.png)
-
-### Tech Stack Overview
-
-![Tech Stack Overview](assets/img/tech-stack.png)
-
 ### System Components
 
 1. **Frontend (Next.js 14)**
@@ -251,8 +237,6 @@ This application follows a modular architecture with a clear separation of conce
    - Comprehensive TypeScript coverage
    - Zod schemas for runtime validation
    - Type-safe Socket.IO events
-
-![Component Architecture](assets/component-architecture.puml)
 
 ## 📝 Available Scripts
 
