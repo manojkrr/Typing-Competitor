@@ -47,8 +47,8 @@ const io = new Server<
   cors: {
     origin:
       process.env.NODE_ENV === "development"
-        ? `${process.env.CORS_ORIGIN}${PORT}`
-        : process.env.CORS_ORIGIN,
+        ? `*`
+        : "https://your-production-domain.com",
     methods: ["GET", "POST"],
     credentials: true,
   },
