@@ -62,7 +62,7 @@ export function ResultsModal({
       open={isOpen}
       onOpenChange={(open) => {
         if (!open) {
-          onClose();
+          handleRestart();
         }
       }}
     >

@@ -31,7 +31,7 @@ export default function SoloPage() {
   const [timeLeft, setTimeLeft] = useState(60);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [wpm, setWpm] = useState(0);
-  const [accuracy, setAccuracy] = useState(100);
+  const [accuracy, setAccuracy] = useState(0);
   const [errors, setErrors] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [showStats, setShowStats] = useState(false);
@@ -56,7 +56,7 @@ export default function SoloPage() {
     setTimeLeft(selectedTime);
     setStartTime(null);
     setWpm(0);
-    setAccuracy(100);
+    setAccuracy(0);
     setErrors(0);
     setShowResults(false);
     setCheatDetection(null);
@@ -76,6 +76,9 @@ export default function SoloPage() {
           if (prev <= 1) {
             setIsActive(false);
             setShowResults(true);
+            if (intervalRef.current) {
+              clearInterval(intervalRef.current);
+            }
             return 0;
           }
           return prev - 1;
@@ -101,7 +104,7 @@ export default function SoloPage() {
     }
 
     const currentAccuracy =
-      totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+      totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
     const currentErrors = totalChars - correctChars;
 
     setWpm(currentWpm);
@@ -117,6 +120,7 @@ export default function SoloPage() {
 
   const handleInputChange = (value: string) => {
     if (!isActive && value.length > 0) {
+      setIsActive(true);
       startTest();
     }
 

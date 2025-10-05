@@ -118,15 +118,14 @@ This application follows a modular architecture with a clear separation of conce
 
 ```bash
 # Clone the repository
-git clone <repository-url>
 cd typing-competitor
 
 # Install frontend dependencies
-npm install
+pnpm install
 
 # Install server dependencies
 cd server
-npm install
+pnpm install
 cd ..
 ```
 
@@ -138,7 +137,7 @@ Create environment files:
 # Create main environment file
 touch .env.local
 
-# Create server environment file (if needed)
+# Create server environment file
 touch server/.env
 ```
 
