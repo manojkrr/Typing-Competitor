@@ -22,10 +22,12 @@ class SocketManager {
       return this.socket;
     }
 
-    const serverUrl =
-      process.env.NODE_ENV === "production"
-        ? "wss://your-server-domain.com"
-        : "http://localhost:3001";
+    const serverUrl = process.env.NEXT_PUBLIC_SOCKET_URL;
+    if (!serverUrl) {
+      throw new Error(
+        "Socket server URL is not defined in environment variables.",
+      );
+    }
 
     this.socket = io(serverUrl, {
       transports: ["websocket", "polling"],
